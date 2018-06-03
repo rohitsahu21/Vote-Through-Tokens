@@ -103,7 +103,7 @@ function populateCandidates() {
       setupCandidateRows();
       populateCandidateVotes();
       populateTokenData();
-      getDetails();
+      //getDetails();
     });
   });
 }
@@ -151,7 +151,7 @@ function populateTokenData() {
     web3.eth.getBalance(contractInstance.address, function(error, result) {
       $("#contract-balance").html(web3.fromWei(result.toString()) + " Ether");
     });
-      //$("#accountAddress").html("Your Account Address: " + address);
+      $("#accountAddress").html("Your Account Address: " + address);
   });
 }
 
