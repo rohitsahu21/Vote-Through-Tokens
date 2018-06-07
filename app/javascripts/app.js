@@ -148,6 +148,14 @@ function populateTokenData() {
       tokenPrice = parseFloat(web3.fromWei(v.toString()));
       $("#token-cost").html(tokenPrice + " Ether");
     });
+    contractInstance.voterDetails.call(address).then(function(v) {
+      let allCandidates = Object.keys(candidates);
+      for(let i=0; i < allCandidates.length; i++) {
+        let votesPerCandidate = v[1];
+        $("#candidates-details2").append("<tr><td>" + allCandidates[i] + "</td><td>" + votesPerCandidate[i] + "</td></tr><br>");
+        
+      }
+    });
     web3.eth.getBalance(contractInstance.address, function(error, result) {
       $("#contract-balance").html(web3.fromWei(result.toString()) + " Ether");
     });
